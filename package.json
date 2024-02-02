@@ -14,6 +14,7 @@
     "@univerjs/docs": "*",
     "@univerjs/engine-formula": "*",
     "@univerjs/engine-render": "*",
+    "@univerjs/facade": "*",
     "@univerjs/sheets": "*",
     "@univerjs/sheets-formula": "*",
     "@univerjs/sheets-ui": "*",
@@ -22,7 +23,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.51",
+    "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.56.0",

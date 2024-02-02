@@ -1,4 +1,4 @@
-# The demo of using Univer sheets with React
+# Demo of using Univer Sheets and Facade API in React
 
 <p align="center">
     English
@@ -6,15 +6,13 @@
     <a href="./README-zh.md">简体中文</a>
 </p>
 
-This project is a demo of using [Univer](https://github.com/dream-num/univer) with React Hooks.
-
-If you want to use Vue, please see [sheets-vue3-demo](https://github.com/awesome-univer/sheets-vue3-demo).
+This project demonstrates the use of [Univer](https://github.com/dream-num/univer) and [Facade API](https://univer.ai/guides/facade/) in a React project.
 
 ## Project setup
 
 ```bash
-git clone https://github.com/awesome-univer/sheets-react-demo.git
-cd sheets-react-demo
+git clone https://github.com/awesome-univer/sheets-react-facade-demo.git
+cd sheets-react-facade-demo
 npm install # npm version >= 7  or pnpm install
 ```
 
@@ -36,4 +34,4 @@ If you don't want to install the development environment locally, or your local 
 
 You can click the following button to open this repo in StackBlitz:
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/awesome-univer/sheets-react-demo)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/awesome-univer/sheets-react-facade-demo)
