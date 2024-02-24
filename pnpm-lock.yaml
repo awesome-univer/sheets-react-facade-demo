@@ -6,34 +6,34 @@ settings:
 
 dependencies:
   '@univerjs/core':
-    specifier: '*'
+    specifier: 0.1.0-beta.5
     version: 0.1.0-beta.5(@wendellhu/redi@0.13.0)(rxjs@7.8.1)
   '@univerjs/design':
-    specifier: '*'
+    specifier: 0.1.0-beta.5
     version: 0.1.0-beta.5(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.1)
   '@univerjs/docs':
-    specifier: '*'
+    specifier: 0.1.0-beta.5
     version: 0.1.0-beta.5(@univerjs/core@0.1.0-beta.5)(@univerjs/engine-render@0.1.0-beta.5)(@wendellhu/redi@0.13.0)(rxjs@7.8.1)
   '@univerjs/engine-formula':
-    specifier: '*'
+    specifier: 0.1.0-beta.5
     version: 0.1.0-beta.5(@univerjs/core@0.1.0-beta.5)(@wendellhu/redi@0.13.0)(rxjs@7.8.1)
   '@univerjs/engine-render':
-    specifier: '*'
+    specifier: 0.1.0-beta.5
     version: 0.1.0-beta.5(@univerjs/core@0.1.0-beta.5)(@wendellhu/redi@0.13.0)(rxjs@7.8.1)
   '@univerjs/facade':
-    specifier: '*'
+    specifier: 0.1.0-beta.5
     version: 0.1.0-beta.5(@univerjs/core@0.1.0-beta.5)(@univerjs/network@0.1.0-beta.5)(@univerjs/sheets-formula@0.1.0-beta.5)(@univerjs/sheets-numfmt@0.1.0-beta.5)(@univerjs/sheets@0.1.0-beta.5)(@wendellhu/redi@0.13.0)(rxjs@7.8.1)
   '@univerjs/sheets':
-    specifier: '*'
+    specifier: 0.1.0-beta.5
     version: 0.1.0-beta.5(@univerjs/core@0.1.0-beta.5)(@univerjs/engine-formula@0.1.0-beta.5)(@univerjs/engine-render@0.1.0-beta.5)(@wendellhu/redi@0.13.0)(rxjs@7.8.1)
   '@univerjs/sheets-formula':
-    specifier: '*'
+    specifier: 0.1.0-beta.5
     version: 0.1.0-beta.5(@univerjs/core@0.1.0-beta.5)(@univerjs/design@0.1.0-beta.5)(@univerjs/docs@0.1.0-beta.5)(@univerjs/engine-formula@0.1.0-beta.5)(@univerjs/engine-render@0.1.0-beta.5)(@univerjs/sheets-numfmt@0.1.0-beta.5)(@univerjs/sheets-ui@0.1.0-beta.5)(@univerjs/sheets@0.1.0-beta.5)(@univerjs/ui@0.1.0-beta.5)(@wendellhu/redi@0.13.0)(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.1)
   '@univerjs/sheets-ui':
-    specifier: '*'
+    specifier: 0.1.0-beta.5
     version: 0.1.0-beta.5(@univerjs/core@0.1.0-beta.5)(@univerjs/design@0.1.0-beta.5)(@univerjs/docs@0.1.0-beta.5)(@univerjs/engine-formula@0.1.0-beta.5)(@univerjs/engine-numfmt@0.1.0-beta.5)(@univerjs/engine-render@0.1.0-beta.5)(@univerjs/sheets@0.1.0-beta.5)(@univerjs/ui@0.1.0-beta.5)(@wendellhu/redi@0.13.0)(clsx@2.1.0)(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.1)
   '@univerjs/ui':
-    specifier: '*'
+    specifier: 0.1.0-beta.5
     version: 0.1.0-beta.5(@univerjs/core@0.1.0-beta.5)(@univerjs/design@0.1.0-beta.5)(@univerjs/engine-render@0.1.0-beta.5)(@wendellhu/redi@0.13.0)(clsx@2.1.0)(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.1)
   react:
     specifier: ^18.2.0
