@@ -19,17 +19,17 @@ function App () {
         .filter(
           // Filter by type, only show the following types
           (cmd) =>
+            /**
+             * @see https://univer.ai/guides/architecture/architecture/#%E5%91%BD%E4%BB%A4%E7%B3%BB%E7%BB%9F
+             */
             [
-              /**
-               * @see https://univer.ai/guides/architecture/architecture/#%E5%91%BD%E4%BB%A4%E7%B3%BB%E7%BB%9F
-               */
               0, // Command
               1, // Operation
               2, // Mutation
             ].indexOf(cmd.type) !== -1
         )
         .filter(
-          // 按名称过滤，黑名单不显示
+          // Filter by id, only show the following ids
           (cmd) =>
             ![
               /^doc./, // doc
@@ -98,7 +98,7 @@ function App () {
 
     univerAPI.executeCommand(SetWorksheetRowHeightMutation.id, {
       unitId: activeWorkbook.getId(),
-      subUnitId: activeSheet._worksheet.getSheetId(), //需要增加
+      subUnitId: activeSheet._worksheet.getSheetId(), 
       ranges: [
         {
           startColumn: 1,
@@ -112,7 +112,7 @@ function App () {
 
     univerAPI.executeCommand(SetWorksheetColWidthMutation.id, {
       unitId: activeWorkbook.getId(),
-      subUnitId: activeSheet._worksheet.getSheetId(), //需要增加
+      subUnitId: activeSheet._worksheet.getSheetId(), 
       ranges: [
         {
           startColumn: 1,
@@ -135,10 +135,16 @@ function App () {
     const range = activeSheet.getRange(0, 0);
 
     range.setValue('center');
-    // @see https://univer.ai/api/facade/classes/FRange.html#setHorizontalAlignment
+    /**
+     * @see https://univer.ai/api/facade/classes/FRange.html#setHorizontalAlignment
+     */
     range.setHorizontalAlignment('center');
   }
 
+  /**
+   * change style by command
+   * @description use command you can set any style you want, not just facade api provided style 
+   */
   const changeStyleByCommand = () => {
     /** @type { import("@univerjs/facade").FUniver } */
     const univerAPI = univerRef.current?.univerAPI?.current;
@@ -146,10 +152,12 @@ function App () {
 
     const activeWorkbook = univerAPI.getActiveWorkbook();
     const activeSheet = activeWorkbook.getActiveSheet();
+    const range = activeSheet.getRange(0, 0);
+    range.setValue('center');
 
-    // use command you can set any style you want, not just facade api provided style 
-
-    // @see https://univer.ai/api/sheets/interfaces/ISetStyleCommandParams.html
+    /**
+     * @see https://univer.ai/api/sheets/interfaces/ISetStyleCommandParams.html
+     */
     univerAPI.executeCommand('sheet.command.set-style', {
       unitId: activeWorkbook.getId(),
       subUnitId: activeSheet._worksheet.getSheetId(),
@@ -159,8 +167,10 @@ function App () {
         startRow: 0,
         endRow: 0,
       },
-      // https://univer.ai/api/sheets/interfaces/IStyleTypeValue.html
-      // https://univer.ai/api/core/interfaces/IStyleData.html
+      /**
+       * @see https://univer.ai/api/sheets/interfaces/IStyleTypeValue.html
+       * @see https://univer.ai/api/core/interfaces/IStyleData.html
+       */
       style: {
         type: 'ht',
         /**
