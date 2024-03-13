@@ -1,18 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import UniverSheet from './components/UniverSheet';
 import { getDefaultWorkbookData } from './assets/default-workbook-data';
-import { FUniver } from '@univerjs/facade';
 import {
   SetWorksheetColWidthMutation,
   SetWorksheetRowHeightMutation,
 } from '@univerjs/sheets';
 
-function App() {
+function App () {
   const [data, setData] = useState(() => getDefaultWorkbookData());
   const univerRef = useRef();
 
   useEffect(() => {
-    /** @type { FUniver} */
+    /** @type { import("@univerjs/facade").FUniver } */
     const univerAPI = univerRef.current.univerAPI.current;
 
     const { dispose } = univerAPI.onCommandExecuted((command) => {
@@ -55,9 +54,9 @@ function App() {
     };
   }, []);
 
-  // add演示
+  // increment cell value
   const increment = () => {
-    /** @type { FUniver} */
+    /** @type { import("@univerjs/facade").FUniver } */
     const univerAPI = univerRef.current?.univerAPI?.current;
     if (!univerAPI) throw Error('univerAPI undone');
     const range = univerAPI.getActiveWorkbook().getActiveSheet().getRange(0, 0);
@@ -68,7 +67,7 @@ function App() {
   };
 
   const logSelection = () => {
-    /** @type { FUniver} */
+    /** @type { import("@univerjs/facade").FUniver } */
     const univerAPI = univerRef.current?.univerAPI?.current;
     if (!univerAPI) throw Error('univerAPI undone');
     const selection = univerAPI
@@ -90,7 +89,7 @@ function App() {
   };
 
   const changeCellSize = () => {
-    /** @type { FUniver} */
+    /** @type { import("@univerjs/facade").FUniver } */
     const univerAPI = univerRef.current?.univerAPI?.current;
     if (!univerAPI) throw Error('univerAPI undone');
 
@@ -126,6 +125,52 @@ function App() {
     });
   };
 
+  const changeStyleByAPI = () => {
+    /** @type { import("@univerjs/facade").FUniver } */
+    const univerAPI = univerRef.current?.univerAPI?.current;
+    if (!univerAPI) throw Error('univerAPI undone');
+
+    const activeWorkbook = univerAPI.getActiveWorkbook();
+    const activeSheet = activeWorkbook.getActiveSheet();
+    const range = activeSheet.getRange(0, 0);
+
+    range.setValue('center');
+    // @see https://univer.ai/api/facade/classes/FRange.html#setHorizontalAlignment
+    range.setHorizontalAlignment('center');
+  }
+
+  const changeStyleByCommand = () => {
+    /** @type { import("@univerjs/facade").FUniver } */
+    const univerAPI = univerRef.current?.univerAPI?.current;
+    if (!univerAPI) throw Error('univerAPI undone');
+
+    const activeWorkbook = univerAPI.getActiveWorkbook();
+    const activeSheet = activeWorkbook.getActiveSheet();
+
+    // use command you can set any style you want, not just facade api provided style 
+
+    // @see https://univer.ai/api/sheets/interfaces/ISetStyleCommandParams.html
+    univerAPI.executeCommand('sheet.command.set-style', {
+      unitId: activeWorkbook.getId(),
+      subUnitId: activeSheet._worksheet.getSheetId(),
+      range: {
+        startColumn: 0,
+        endColumn: 0,
+        startRow: 0,
+        endRow: 0,
+      },
+      // https://univer.ai/api/sheets/interfaces/IStyleTypeValue.html
+      // https://univer.ai/api/core/interfaces/IStyleData.html
+      style: {
+        type: 'ht',
+        /**
+         * @see https://univer.ai/api/core/enums/HorizontalAlign.html
+         */
+        value: 2,
+      },
+    });
+  }
+
   const reloadData = () => {
     setData(getDefaultWorkbookData(Math.random().toString()));
   };
@@ -133,17 +178,35 @@ function App() {
   return (
     <div id="root">
       <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-        <div className="bar">
+        <div className="bar" style={{ display: 'flex', gap: '10px' }}>
           <button
             onClick={() => {
               console.log(univerRef.current?.getData());
             }}
+            title="Get workbook data output in console"
           >
             Get Data
           </button>
-          <button onClick={increment}>Increment</button>
-          <button onClick={changeCellSize}>changeCellSize</button>
-          <button onClick={reloadData}>reloadData</button>
+          <button
+            onClick={increment}
+            title="Increment the value of the first cell"
+          >Increment</button>
+          <button
+            onClick={changeCellSize}
+            title="Change the size of the B2 cell"
+          >changeCellSize</button>
+          <button
+            onClick={reloadData}
+            title='Reload data by random'
+          >reloadData</button>
+          <button
+            onClick={changeStyleByAPI}
+            title='Change style by Facade API'
+          >changeStyle1</button>
+          <button
+            onClick={changeStyleByCommand}
+            title='Change style by Command'
+          >changeStyle2</button>
         </div>
         <UniverSheet
           style={{ flex: 1 }}
