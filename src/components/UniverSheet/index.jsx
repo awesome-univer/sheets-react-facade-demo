@@ -19,6 +19,7 @@ import {
 } from '@univerjs/sheets';
 import { UniverSheetsFormulaPlugin } from '@univerjs/sheets-formula';
 import { UniverSheetsUIPlugin } from '@univerjs/sheets-ui';
+import { UniverDocsUIPlugin } from '@univerjs/docs-ui';
 import { UniverUIPlugin } from '@univerjs/ui';
 import { FUniver } from '@univerjs/facade';
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
@@ -62,6 +63,7 @@ export const UniverSheet = forwardRef(({ data, onClick, onDbClick }, ref) => {
     univer.registerPlugin(UniverDocsPlugin, {
       hasScroll: false,
     });
+    univer.registerPlugin(UniverDocsUIPlugin)
 
     // sheet plugins
     univer.registerPlugin(UniverSheetsPlugin);

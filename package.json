@@ -12,6 +12,7 @@
     "@univerjs/core": "^0.1.2",
     "@univerjs/design": "^0.1.2",
     "@univerjs/docs": "^0.1.2",
+    "@univerjs/docs-ui": "^0.1.2",
     "@univerjs/engine-formula": "^0.1.2",
     "@univerjs/engine-render": "^0.1.2",
     "@univerjs/facade": "^0.1.2",
