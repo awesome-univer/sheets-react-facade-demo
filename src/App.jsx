@@ -18,25 +18,27 @@ function App() {
     const { dispose } = univerAPI.onCommandExecuted((command) => {
       [command]
         .filter(
-          // 按类型过滤，白名单显示
+          // Filter by type, only show the following types
           (cmd) =>
             [
-              // see https://univer.ai/guides/architecture/architecture/#%E5%91%BD%E4%BB%A4%E7%B3%BB%E7%BB%9F
-              0, //命令
-              1, //操作
-              2, //变更
+              /**
+               * @see https://univer.ai/guides/architecture/architecture/#%E5%91%BD%E4%BB%A4%E7%B3%BB%E7%BB%9F
+               */
+              0, // Command
+              1, // Operation
+              2, // Mutation
             ].indexOf(cmd.type) !== -1
         )
         .filter(
           // 按名称过滤，黑名单不显示
           (cmd) =>
             ![
-              /^doc./, //文档
-              /^formula-ui./, //公式栏
-              /formula/, // 公式
-              /set-selections/, //选区
-              /set-activate-cell-edit/, //单元格编辑
-              // /set-cell-edit-visible/, //单元格悬浮编辑框显示、隐藏
+              /^doc./, // doc
+              /^formula-ui./, // formula-ui
+              /formula/, //  formula
+              /set-selections/, // selection change
+              /set-activate-cell-edit/, // change cell edit
+              // /set-cell-edit-visible/, // floating cell edit
             ].find((rule) => {
               if (rule instanceof RegExp) {
                 return rule.test(cmd.id);
@@ -75,14 +77,14 @@ function App() {
       .getSelection();
     const range = selection.getActiveRange();
     console.log(
-      '当前选中',
+      'current selection:',
       'x',
       range.getColumn(),
       'y',
       range.getRow(),
-      '宽度',
+      'cell width',
       range.getWidth(),
-      '高度',
+      'cell height',
       range.getHeight()
     );
   };

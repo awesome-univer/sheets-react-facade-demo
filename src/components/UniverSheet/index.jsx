@@ -102,7 +102,7 @@ export const UniverSheet = forwardRef(({ data, onClick, onDbClick }, ref) => {
     let clickTime = 0;
     let dbClickTime = 0;
     const onClickDebounce = (e) => {
-      // 避免重复触发
+      // debounce click
       if (Date.now() - dbClickTime < 500) return;
       if (Date.now() - clickTime < 500) return;
       onClick(e);
@@ -114,16 +114,16 @@ export const UniverSheet = forwardRef(({ data, onClick, onDbClick }, ref) => {
         command.id === SetSelectionsOperation.id &&
         command.params.type === SelectionMoveType.MOVE_END
       ) {
-        //用选取结束模拟 单击
+        // mock click event
         setTimeout(() => {
           onClickDebounce?.();
         }, 250);
       }
 
-      //用选取结束命令模拟
-      //该 command id 未导出，用字符串代替
+      // mock dbclick event
+      // use command name string, because command id is not exported
       if (command.id === 'sheet.operation.set-cell-edit-visible') {
-        //用单元格编辑器模拟 双击
+        // mock dbclick event
         if (command.params.eventType === DeviceInputEventType.Dblclick) {
           dbClickTime = Date.now();
 
