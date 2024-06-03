@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import UniverSheet from './components/UniverSheet';
 import { getDefaultWorkbookData } from './assets/default-workbook-data';
+import { CommandType } from '@univerjs/core';
 import {
   SetWorksheetColWidthMutation,
   SetWorksheetRowHeightMutation,
+  SetStyleCommand,
 } from '@univerjs/sheets';
 
 function App () {
@@ -23,21 +25,21 @@ function App () {
              * @see https://univer.ai/guides/architecture/architecture/#%E5%91%BD%E4%BB%A4%E7%B3%BB%E7%BB%9F
              */
             [
-              0, // Command
-              1, // Operation
-              2, // Mutation
+              CommandType.COMMAND,    // Command
+              CommandType.OPERATION,  // Operation
+              CommandType.MUTATION,   // Mutation
             ].indexOf(cmd.type) !== -1
         )
         .filter(
           // Filter by id, only show the following ids
           (cmd) =>
             ![
-              /^doc./, // doc
-              /^formula-ui./, // formula-ui
-              /formula/, //  formula
-              /set-selections/, // selection change
+              /^doc./,                  // doc
+              /^formula-ui./,           // formula-ui
+              /formula/,                //  formula
+              /set-selections/,         // selection change
               /set-activate-cell-edit/, // change cell edit
-              // /set-cell-edit-visible/, // floating cell edit
+              // /set-cell-edit-visible/,  // floating cell edit
             ].find((rule) => {
               if (rule instanceof RegExp) {
                 return rule.test(cmd.id);
@@ -98,7 +100,7 @@ function App () {
 
     univerAPI.executeCommand(SetWorksheetRowHeightMutation.id, {
       unitId: activeWorkbook.getId(),
-      subUnitId: activeSheet._worksheet.getSheetId(), 
+      subUnitId: activeSheet.getSheetId(), 
       ranges: [
         {
           startColumn: 1,
@@ -112,7 +114,7 @@ function App () {
 
     univerAPI.executeCommand(SetWorksheetColWidthMutation.id, {
       unitId: activeWorkbook.getId(),
-      subUnitId: activeSheet._worksheet.getSheetId(), 
+      subUnitId: activeSheet.getSheetId(), 
       ranges: [
         {
           startColumn: 1,
@@ -158,9 +160,9 @@ function App () {
     /**
      * @see https://univer.ai/api/sheets/interfaces/ISetStyleCommandParams.html
      */
-    univerAPI.executeCommand('sheet.command.set-style', {
+    univerAPI.executeCommand(SetStyleCommand.id, {
       unitId: activeWorkbook.getId(),
-      subUnitId: activeSheet._worksheet.getSheetId(),
+      subUnitId: activeSheet.getSheetId(),
       range: {
         startColumn: 0,
         endColumn: 0,
