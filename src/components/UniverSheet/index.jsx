@@ -71,7 +71,7 @@ export const UniverSheet = forwardRef(({ data, onClick, onDbClick }, ref) => {
     univer.registerPlugin(UniverSheetsFormulaPlugin);
 
     // create workbook instance
-    univer.createUnit(UniverInstanceType.UNIVER_SHEET, data);
+    workbookRef.current = univer.createUnit(UniverInstanceType.UNIVER_SHEET, data);
 
     // craete Facade API instance
     fUniverRef.current = FUniver.newAPI(univer);
