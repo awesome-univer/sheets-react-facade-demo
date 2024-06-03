@@ -1,10 +1,7 @@
-import '@univerjs/design/lib/index.css';
-import '@univerjs/ui/lib/index.css';
-import '@univerjs/sheets-ui/lib/index.css';
-import '@univerjs/sheets-formula/lib/index.css';
+
 import './index.css';
 
-import { Univer } from '@univerjs/core';
+import { LocaleType, Univer, UniverInstanceType } from "@univerjs/core";
 import { defaultTheme } from '@univerjs/design';
 import { UniverDocsPlugin } from '@univerjs/docs';
 import { UniverFormulaEnginePlugin } from '@univerjs/engine-formula';
@@ -23,6 +20,7 @@ import { UniverDocsUIPlugin } from '@univerjs/docs-ui';
 import { UniverUIPlugin } from '@univerjs/ui';
 import { FUniver } from '@univerjs/facade';
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
+import { zhCN, enUS } from 'univer:locales'
 
 export const UniverSheet = forwardRef(({ data, onClick, onDbClick }, ref) => {
   const univerRef = useRef(null);
@@ -46,6 +44,11 @@ export const UniverSheet = forwardRef(({ data, onClick, onDbClick }, ref) => {
     }
     const univer = new Univer({
       theme: defaultTheme,
+      locale: LocaleType.EN_US,
+      locales: {
+        [LocaleType.ZH_CN]: zhCN,
+        [LocaleType.EN_US]: enUS,
+      },
     });
     univerRef.current = univer;
 
@@ -54,9 +57,6 @@ export const UniverSheet = forwardRef(({ data, onClick, onDbClick }, ref) => {
     univer.registerPlugin(UniverFormulaEnginePlugin);
     univer.registerPlugin(UniverUIPlugin, {
       container: containerRef.current,
-      header: true,
-      toolbar: true,
-      footer: true,
     });
 
     // doc plugins
@@ -71,7 +71,7 @@ export const UniverSheet = forwardRef(({ data, onClick, onDbClick }, ref) => {
     univer.registerPlugin(UniverSheetsFormulaPlugin);
 
     // create workbook instance
-    workbookRef.current = univer.createUniverSheet(data);
+    univer.createUnit(UniverInstanceType.UNIVER_SHEET, data);
 
     // craete Facade API instance
     fUniverRef.current = FUniver.newAPI(univer);
@@ -81,7 +81,7 @@ export const UniverSheet = forwardRef(({ data, onClick, onDbClick }, ref) => {
    * Destroy univer instance and workbook instance
    */
   const destroyUniver = () => {
-    univerRef.current?.dispose();
+    // univerRef.current?.dispose();
     univerRef.current = null;
     workbookRef.current = null;
   };
