@@ -19,6 +19,7 @@ import { UniverSheetsUIPlugin } from '@univerjs/sheets-ui';
 import { UniverDocsUIPlugin } from '@univerjs/docs-ui';
 import { UniverUIPlugin } from '@univerjs/ui';
 import { FUniver } from '@univerjs/facade';
+import { UniverSheetsNumfmtPlugin } from '@univerjs/sheets-numfmt'
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 
 /**
@@ -78,7 +79,7 @@ export const UniverSheet = forwardRef(({ data, onClick, onDbClick }, ref) => {
     univer.registerPlugin(UniverSheetsPlugin);
     univer.registerPlugin(UniverSheetsUIPlugin);
     univer.registerPlugin(UniverSheetsFormulaPlugin);
-
+    univer.registerPlugin(UniverSheetsNumfmtPlugin);
     // create workbook instance
     workbookRef.current = univer.createUnit(UniverInstanceType.UNIVER_SHEET, data);
 
