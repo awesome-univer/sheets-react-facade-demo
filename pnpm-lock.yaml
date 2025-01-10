@@ -636,7 +636,7 @@ packages:
     hasBin: true
     dependencies:
       lodash.camelcase: 4.3.0
-      long: 5.2.3
+      long: 5.2.4
       protobufjs: 7.4.0
       yargs: 17.7.2
     dev: false
@@ -2751,8 +2751,8 @@ packages:
     resolution: {integrity: sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==}
     dev: false
 
-  /long@5.2.3:
-    resolution: {integrity: sha512-lcHwpNoggQTObv5apGNCTdJrO69eHOZMi4BNC+rTLER8iHAqGrUVeLh/irVIM7zTw2bOXA8T6uNPeujwOLg/2Q==}
+  /long@5.2.4:
+    resolution: {integrity: sha512-qtzLbJE8hq7VabR3mISmVGtoXP8KGc2Z/AT8OuqlYD7JTR3oqrgwdjnk07wpj1twXxYmgDXgoKVWUG/fReSzHg==}
     dev: false
 
   /loose-envify@1.4.0:
@@ -2999,7 +2999,7 @@ packages:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/node': 22.10.5
-      long: 5.2.3
+      long: 5.2.4
     dev: false
 
   /punycode@2.3.1:
