@@ -627,7 +627,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.13
-      '@types/node': 22.13.8
+      '@types/node': 22.13.9
     dev: false
 
   /@grpc/proto-loader@0.7.13:
@@ -967,8 +967,8 @@ packages:
     resolution: {integrity: sha512-8wTvZawATi/lsmNu10/j2hk1KEP0IvjubqPE3cu1Xz7xfXXt5oCq3SNUz4fMIP4XGF9Ky+Ue2tBA3hcS7LSBlA==}
     dev: false
 
-  /@types/node@22.13.8:
-    resolution: {integrity: sha512-G3EfaZS+iOGYWLLRCEAXdWK9my08oHNZ+FHluRiggIYJPOXzhOiDgpVCUHaUvyIC5/fj7C/p637jdzC666AOKQ==}
+  /@types/node@22.13.9:
+    resolution: {integrity: sha512-acBjXdRJ3A6Pb3tqnw9HZmyR3Fiol3aGxRCK1x3d+6CDAMjl7I649wpSd+yNURCjbOUGu9tqtLKnTGxmK6CyGw==}
     dependencies:
       undici-types: 6.20.0
     dev: false
@@ -1302,7 +1302,7 @@ packages:
       '@univerjs/sheets-filter': 0.2.9(@univerjs/core@0.2.9)(@univerjs/sheets@0.2.9)(rxjs@7.8.2)
       '@univerjs/sheets-ui': 0.2.9(@grpc/grpc-js@1.9.14)(@univerjs/core@0.2.9)(@univerjs/design@0.2.9)(@univerjs/docs@0.2.9)(@univerjs/engine-formula@0.2.9)(@univerjs/engine-render@0.2.9)(@univerjs/sheets@0.2.9)(@univerjs/ui@0.2.9)(clsx@2.1.1)(react-dom@18.3.1)(react@18.3.1)(rxjs@7.8.2)
       '@univerjs/ui': 0.2.9(@univerjs/core@0.2.9)(@univerjs/design@0.2.9)(@univerjs/engine-formula@0.2.9)(@univerjs/engine-render@0.2.9)(clsx@2.1.1)(react-dom@18.3.1)(react@18.3.1)(rxjs@7.8.2)
-      rc-virtual-list: 3.18.3(react-dom@18.3.1)(react@18.3.1)
+      rc-virtual-list: 3.18.4(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       rxjs: 7.8.2
@@ -2998,7 +2998,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 22.13.8
+      '@types/node': 22.13.9
       long: 5.3.1
     dev: false
 
@@ -3284,8 +3284,8 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
-  /rc-virtual-list@3.18.3(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-s1/bZQY2uwnmgXYeXxJkk2cSTz1cdUPDCrxAq/y1WQM115HilFFIvLi+JVFfkD4xCq3TZxGM17FQH4NLesWfwg==}
+  /rc-virtual-list@3.18.4(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-qkurwgc4Je4xJaYe1DprDl2fwtfEZcuC4UhsJRiX2YZ6wSZAUPQXH/lIX+ZRtNEWmz3pzSBQ7NX3Csjp0wCtcg==}
     engines: {node: '>=8.x'}
     peerDependencies:
       react: '>=16.9.0'
