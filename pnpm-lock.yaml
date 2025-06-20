@@ -1300,7 +1300,7 @@ packages:
       '@univerjs/sheets-filter': 0.2.9(@univerjs/core@0.2.9)(@univerjs/sheets@0.2.9)(rxjs@7.8.2)
       '@univerjs/sheets-ui': 0.2.9(@grpc/grpc-js@1.9.14)(@univerjs/core@0.2.9)(@univerjs/design@0.2.9)(@univerjs/docs@0.2.9)(@univerjs/engine-formula@0.2.9)(@univerjs/engine-render@0.2.9)(@univerjs/sheets@0.2.9)(@univerjs/ui@0.2.9)(clsx@2.1.1)(react-dom@18.3.1)(react@18.3.1)(rxjs@7.8.2)
       '@univerjs/ui': 0.2.9(@univerjs/core@0.2.9)(@univerjs/design@0.2.9)(@univerjs/engine-formula@0.2.9)(@univerjs/engine-render@0.2.9)(clsx@2.1.1)(react-dom@18.3.1)(react@18.3.1)(rxjs@7.8.2)
-      rc-virtual-list: 3.18.6(react-dom@18.3.1)(react@18.3.1)
+      rc-virtual-list: 3.19.1(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       rxjs: 7.8.2
@@ -3291,8 +3291,8 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: false
 
-  /rc-virtual-list@3.18.6(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-TQ5SsutL3McvWmmxqQtMIbfeoE3dGjJrRSfKekgby7WQMpPIFvv4ghytp5Z0s3D8Nik9i9YNOCqHBfk86AwgAA==}
+  /rc-virtual-list@3.19.1(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-DCapO2oyPqmooGhxBuXHM4lFuX+sshQwWqqkuyFA+4rShLe//+GEPVwiDgO+jKtKHtbeYwZoNvetwfHdOf+iUQ==}
     engines: {node: '>=8.x'}
     peerDependencies:
       react: '>=16.9.0'
